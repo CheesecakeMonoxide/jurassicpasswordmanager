@@ -10,6 +10,7 @@ passwordRepo = {'GMAIL': 'samplepw1',
                 'ACCOUNTX': 'samplepw3', 
                 'ACCOUNTY':'samplepw4', 
                 'ACCOUNTZ':'samplepw5'}
+    
 
 welcomemsg = '  That jurassic password manager you use to retrieve your passwords.  '
 print(welcomemsg.center(76, '#'))
@@ -17,13 +18,13 @@ print('')
 print('Helpful notes:')
 print('  Enter nothing below to end program.')
 print('  Type "My Accounts" to see list of accounts stored here.')
-
-# MISSING OPTION TO UPDATE PASSWORD FOR AN ACCOUNT
+print('  Type "Update" to update your password/s in the database.')
 
 while True:
     print('')
     print('')
-    account = input('GET PASSWORD FOR THIS ACCOUNT: ')
+    print ('GET PASSWORD FOR YOUR ACCOUNT (for other actions, see notes above): ')
+    account = input()
     account = account.upper()
 
     if account == 'MY ACCOUNTS':
@@ -33,6 +34,17 @@ while True:
         dummyDict.sort()
         for entry in dummyDict:
             print (' - {}'.format(entry))
+    if account == 'UPDATE':
+        print ('What account would you want to update?')
+        accountUpdate = input()
+        if accountUpdate in passwordRepo:
+            print ('Important note: The database cannot store old passwords.')
+            newPassword = input ('Enter the new password: ')
+            passwordRepo[accountUpdate] = newPassword
+            print('Database updated.')
+        else:
+            print('That is not in the repository. Type "My Accounts" to see list of accounts stored here.')
+            continue
     if account in passwordRepo:
         pyperclip.copy(passwordRepo[account])
         print('')
