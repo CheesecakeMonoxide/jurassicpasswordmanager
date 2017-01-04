@@ -17,7 +17,9 @@ print('')
 print('Helpful notes:')
 print('  Enter nothing below to end program.')
 print('  Type "My Accounts" to see list of accounts stored here.')
-    
+
+# MISSING OPTION TO UPDATE PASSWORD FOR AN ACCOUNT
+
 while True:
     print('')
     print('')
@@ -27,10 +29,9 @@ while True:
     if account == 'MY ACCOUNTS':
         dummyDict = []
         for k in passwordRepo.keys():
-            keyValues = k
-            dummyDict = dummyDict + [keyValues]
+            dummyDict = dummyDict + [k]
+        dummyDict.sort()
         for entry in dummyDict:
-            dummyDict.sort()
             print (' - {}'.format(entry))
     if account in passwordRepo:
         pyperclip.copy(passwordRepo[account])
