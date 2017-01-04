@@ -48,7 +48,7 @@ while True:
     if account in passwordRepo:
         pyperclip.copy(passwordRepo[account])
         print('')
-        print('Now, CTRL + V that sh*t.')
+        print('Now, CTRL + V that sh*t on the browser where you are trying to log in.')
     if account == '':
         print('User aborted.')
         print('Quitting program.')
